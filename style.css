@@ -77,40 +77,24 @@ body {
   color: #ddd;
 }
 
-/* ===== テキスト ===== */
-.text {
-  text-align: center;
-  margin: 80px 20px;
-}
-
-.text .title {
-  font-size: 40px;
-  margin-bottom: 20px;
-}
-
-.text .desc {
-  font-size: 18px;
-  color: #aaa;
-  line-height: 1.8;
-}
-
 /* ===== カルーセル ===== */
-.featured-carousel {
-  text-align: center;
-  padding: 80px 20px;
+.featured-carousel{
+  text-align:center;
+  padding:80px 20px;
 }
 
-.featured-carousel h2 {
-  color: #25a8a8;
-  margin-bottom: 40px;
-  letter-spacing: 2px;
+.featured-carousel h2{
+  color:#25a8a8;
+  margin-bottom:40px;
+  letter-spacing:2px;
 }
 
-.carousel {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
+.carousel{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:20px;
+  width:100%;
 }
 
 .carousel img {
@@ -118,6 +102,21 @@ body {
   max-width: 900px;
   max-height: 500px;
   object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+#carousel-image {
+  filter: blur(10px);
+}
+
+@keyframes fadeArtwork {
+  0% { opacity: 0; transform: translateX(25px); filter: blur(10px); }
+  100% { opacity: 1; transform: translateX(0); filter: blur(0); }
+}
+
+.fade {
+  animation: fadeArtwork 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 /* ===== ギャラリー ===== */
@@ -143,6 +142,23 @@ body {
 .gallery img:hover {
   transform: scale(1.03);
   opacity: 0.9;
+}
+
+/* ===== テキスト ===== */
+.text {
+  text-align: center;
+  margin: 80px 20px;
+}
+
+.text .title {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.text .desc {
+  font-size: 18px;
+  color: #aaa;
+  line-height: 1.8;
 }
 
 /* ===== 作品ページ ===== */
@@ -201,24 +217,20 @@ body {
   border: none;
   padding: 12px 30px;
   cursor: pointer;
-  font-size: 16px;
 }
 
 .contact button:hover {
   opacity: 0.8;
 }
 
-/* ===== 全体調整 ===== */
-.hero,
-.featured-carousel,
-.gallery,
-.text,
-.bio {
+/* ===== 全体補正 ===== */
+img { max-width: 100%; }
+.hero, .bio, .gallery, .text, .featured-carousel {
   width: 100%;
   padding: 0 20px;
   box-sizing: border-box;
 }
 
-img {
-  max-width: 100%;
+.hero-bg {
+  margin: 20px auto;
 }
