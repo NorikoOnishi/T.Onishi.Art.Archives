@@ -22,33 +22,60 @@ window.addEventListener("DOMContentLoaded", () => {
   ];
 
   let current = 0;
+  let isAnimating = false;
 
   const img = document.getElementById("carousel-image");
   const next = document.querySelector(".next");
   const prev = document.querySelector(".prev");
 
-  function showImage(){
+  function render() {
+    if (!img) return;
+
     img.classList.remove("fade");
-    void img.offsetWidth;
+
+    // 中央表示
     img.src = images[current];
-    requestAnimationFrame(()=> img.classList.add("fade"));
+
+    // 再アニメーション
+    void img.offsetWidth;
+
+    requestAnimationFrame(() => {
+      img.classList.add("fade");
+    });
   }
 
-  next.addEventListener("click", ()=>{
-    current = (current+1)%images.length;
-    showImage();
-  });
+  function nextSlide() {
+    if (isAnimating) return;
+    isAnimating = true;
 
-  prev.addEventListener("click", ()=>{
-    current = (current-1+images.length)%images.length;
-    showImage();
-  });
+    current = (current + 1) % images.length;
+    render();
 
-  showImage();
+    setTimeout(() => {
+      isAnimating = false;
+    }, 1200); // “止まり感”
+  }
 
-  setInterval(()=>{
-    current = (current+1)%images.length;
-    showImage();
-  },8000);
+  function prevSlide() {
+    if (isAnimating) return;
+    isAnimating = true;
 
+    current = (current - 1 + images.length) % images.length;
+    render();
+
+    setTimeout(() => {
+      isAnimating = false;
+    }, 1200);
+  }
+
+  next.addEventListener("click", nextSlide);
+  prev.addEventListener("click", prevSlide);
+
+  render();
+
+  // 自動再生（少し“間”を作る）
+  setInterval(() => {
+    nextSlide();
+  }, 5000);
 });
+
