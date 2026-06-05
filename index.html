@@ -2,80 +2,113 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Toshimi Onishi Art Archives</title>
 
-<link rel="stylesheet" href="style.css">
+<style>
+/* ★ここはあなたのCSSそのまま（完全維持） */
+body {
+  background-color: #0b0b0b;
+  color: #eee;
+  margin: 0;
+  font-family: serif;
+}
+
+/* ・・・（中略せずそのまま全部貼ってOK）・・・ */
+</style>
 </head>
 
 <body>
 
-<header class="hero">
-  <div class="hero-inner">
-    <h1>Toshimi Onishi<br>Art Archives</h1>
-    <p>1940–2001 / Paintings Archive</p>
+<!-- ===== トップ ===== -->
+<div id="top">
+
+  <div class="hero">
+    <img src="001.jpg" class="hero-bg">
+
+    <h1 class="hero-title">
+      Toshimi Onishi<br>
+      Art Archives
+    </h1>
   </div>
-</header>
 
-<section class="intro">
-  <img src="assets/portrait.jpg" alt="">
-  <div>
-    <h2>大西 敏巳</h2>
-    <p>油彩・水彩作品アーカイブ</p>
-  </div>
-</section>
-
-<!-- FEATURE -->
-<section class="feature">
-  <h2>Featured Works</h2>
-
-  <div class="carousel">
-    <button id="prev">‹</button>
-    <img id="carousel-image">
-    <button id="next">›</button>
-  </div>
-</section>
-
-<!-- GALLERY -->
-<section class="gallery" id="gallery"></section>
-
-<!-- LIGHTBOX -->
-<div id="lightbox">
-  <div class="lb-inner">
-
-    <button id="close">×</button>
-
-    <img id="lb-img">
-
-    <div class="lb-text">
-      <h2 id="lb-title"></h2>
-      <p id="lb-year"></p>
-      <p id="lb-desc"></p>
+  <div class="bio">
+    <div class="portrait">
+      <img src="portrait.JPG" class="picture">
     </div>
 
+    <div class="name">大西　敏巳<br>Toshimi Onishi</div>
+
+    <div class="years">1940–2001　兵庫</div>
+
+    <div class="history">
+      1959　二紀展初入選<br>
+      1987　栗原賞受賞<br>
+      1993　黒田賞受賞<br>
+      2000　第54回二紀展 文部大臣奨励賞受賞
+    </div>
+  </div> 
+
+ <div class="text">
+    <div class="title">「刻」と「風景」の記録</div>
+    <div class="desc">
+      父が遺した油彩と水彩の作品群
+    </div>
+ </div>
+
+<div class="featured-carousel">
+
+  <h2>時間と記憶のアーカイブ</h2>
+
+  <div class="carousel">
+
+    <button class="prev">❮</button>
+
+    <img id="carousel-image" src="001.jpg">
+
+    <button class="next">❯</button>
+
   </div>
+
 </div>
 
-<!-- CONTACT -->
-<section class="contact">
-  <h2>Contact</h2>
+<!-- 🔥ここだけ変更（重要） -->
+<div class="gallery" id="gallery"></div>
 
-  <form action="https://formspree.io/f/REPLACE_THIS" method="POST">
+</div>
 
-    <input type="text" name="name" placeholder="Name" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <textarea name="message" placeholder="Message" required></textarea>
+<!-- ===== 作品ページ（ここはそのまま全部残す） ===== -->
+<!-- あなたの work1〜work200 そのまま全部OK -->
 
-    <button type="submit">Send</button>
+<div id="work1" class="work-page">
+  <img src="001.jpg">
+  <h2>作品001</h2>
+  <p>制作年：不明<br>油彩</p>
+  <p>作品説明を書く</p>
+  <div class="back" onclick="back()">← 戻る</div>
+</div>
+
+<!-- ・・・全部そのまま・・・ -->
+
+<!-- ===== お問い合わせ ===== -->
+<div class="contact">
+
+  <div class="contact-title">Contact</div>
+
+  <form action="mailto:yourmail@example.com" method="post" enctype="text/plain">
+
+    <input type="text" name="name" placeholder="お名前" required>
+    <input type="email" name="email" placeholder="メールアドレス" required>
+    <textarea name="message" rows="6" placeholder="メッセージ内容" required></textarea>
+
+    <button type="submit">送信</button>
   </form>
-</section>
+
+</div>
 
 <footer>
-  © Toshimi Onishi Art Archives
+© Toshimi Onishi Art Archives
 </footer>
 
-<script src="works-data.js"></script>
 <script src="script.js"></script>
 
 </body>
