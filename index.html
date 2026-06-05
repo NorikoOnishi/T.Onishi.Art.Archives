@@ -5,7 +5,6 @@
 <title>Toshimi Onishi Art Archives</title>
 
 <style>
-/* ★ここはあなたのCSSそのまま（完全維持） */
 body {
   background-color: #0b0b0b;
   color: #eee;
@@ -13,7 +12,168 @@ body {
   font-family: serif;
 }
 
-/* ・・・（中略せずそのまま全部貼ってOK）・・・ */
+/* ===== トップ ===== */
+.hero {
+  position: relative;
+  text-align: center;
+}
+
+.hero-bg {
+  width: 80%;
+  max-height: 500px;
+  object-fit: cover;
+  display: block;
+  margin: 20px auto;
+  filter: brightness(0.55);
+}
+
+.hero-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: #25a8a8;
+  font-size: 48px;
+  letter-spacing: 3px;
+  margin: 0;
+  text-align: center;
+
+  opacity: 0;
+  filter: blur(12px);
+  animation: fadeInTitle 3s ease-out forwards;
+}
+
+@keyframes fadeInTitle {
+  0% { opacity: 0; filter: blur(12px); }
+  60% { opacity: 0.7; filter: blur(4px); }
+  100% { opacity: 1; filter: blur(0); }
+}
+
+/* ===== 略歴 ===== */
+.portrait {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.picture {
+  width: 400px;
+  max-width: 90%;
+  margin-bottom: 30px;
+}
+
+.bio {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.bio .name {
+  font-size: 34px;
+  margin-bottom: 20px;
+}
+
+.bio .years {
+  font-size: 18px;
+  color: #aaa;
+  margin-bottom: 40px;
+}
+
+.bio .history {
+  font-size: 16px;
+  line-height: 2.2;
+  color: #ddd;
+}
+
+/* ===== カルーセル ===== */
+.featured-carousel{
+  text-align:center;
+  padding:80px 20px;
+}
+
+.featured-carousel h2{
+  color:#25a8a8;
+  margin-bottom:40px;
+}
+
+.carousel{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:20px;
+}
+
+.carousel img{
+  width:80%;
+  max-width:900px;
+  max-height:500px;
+  object-fit:contain;
+}
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:100px 80px;
+  width:60%;
+  margin:120px auto;
+}
+
+.gallery img{
+  width:65%;
+  margin:auto;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.gallery img:hover{
+  transform:scale(1.03);
+}
+
+/* ===== 作品ページ ===== */
+.work-page{
+  display:none;
+  text-align:center;
+  padding:60px 20px;
+}
+
+.work-page img{
+  width:min(80%,900px);
+  margin:40px auto;
+  display:block;
+}
+
+.back{
+  color:#25a8a8;
+  cursor:pointer;
+}
+
+/* ===== 問い合わせ ===== */
+.contact{
+  text-align:center;
+  padding:100px 20px;
+}
+
+.contact-title{
+  font-size:32px;
+  color:#25a8a8;
+}
+
+input, textarea{
+  width:80%;
+  max-width:600px;
+  margin:10px auto;
+  padding:12px;
+  background:#111;
+  border:1px solid #333;
+  color:#eee;
+  display:block;
+}
+
+button{
+  background:#25a8a8;
+  border:none;
+  padding:12px 30px;
+  cursor:pointer;
+}
 </style>
 </head>
 
@@ -24,11 +184,7 @@ body {
 
   <div class="hero">
     <img src="001.jpg" class="hero-bg">
-
-    <h1 class="hero-title">
-      Toshimi Onishi<br>
-      Art Archives
-    </h1>
+    <h1 class="hero-title">Toshimi Onishi<br>Art Archives</h1>
   </div>
 
   <div class="bio">
@@ -36,8 +192,7 @@ body {
       <img src="portrait.JPG" class="picture">
     </div>
 
-    <div class="name">大西　敏巳<br>Toshimi Onishi</div>
-
+    <div class="name">大西 敏巳</div>
     <div class="years">1940–2001　兵庫</div>
 
     <div class="history">
@@ -46,69 +201,47 @@ body {
       1993　黒田賞受賞<br>
       2000　第54回二紀展 文部大臣奨励賞受賞
     </div>
-  </div> 
-
- <div class="text">
-    <div class="title">「刻」と「風景」の記録</div>
-    <div class="desc">
-      父が遺した油彩と水彩の作品群
-    </div>
- </div>
-
-<div class="featured-carousel">
-
-  <h2>時間と記憶のアーカイブ</h2>
-
-  <div class="carousel">
-
-    <button class="prev">❮</button>
-
-    <img id="carousel-image" src="001.jpg">
-
-    <button class="next">❯</button>
-
   </div>
 
+  <div class="featured-carousel">
+    <h2>時間と記憶のアーカイブ</h2>
+    <div class="carousel">
+      <button class="prev">❮</button>
+      <img id="carousel-image">
+      <button class="next">❯</button>
+    </div>
+  </div>
+
+  <div class="gallery" id="gallery"></div>
+
 </div>
 
-<!-- 🔥ここだけ変更（重要） -->
-<div class="gallery" id="gallery"></div>
-
-</div>
-
-<!-- ===== 作品ページ（ここはそのまま全部残す） ===== -->
-<!-- あなたの work1〜work200 そのまま全部OK -->
-
+<!-- ===== 作品ページ（例：そのまま残す） ===== -->
 <div id="work1" class="work-page">
   <img src="001.jpg">
   <h2>作品001</h2>
-  <p>制作年：不明<br>油彩</p>
-  <p>作品説明を書く</p>
-  <div class="back" onclick="back()">← 戻る</div>
+  <p>油彩</p>
+  <div class="back" onclick="back()">戻る</div>
 </div>
 
-<!-- ・・・全部そのまま・・・ -->
+<div id="work2" class="work-page">
+  <img src="002.jpg">
+  <h2>作品002</h2>
+  <p>油彩</p>
+  <div class="back" onclick="back()">戻る</div>
+</div>
 
-<!-- ===== お問い合わせ ===== -->
+<!-- ===== 問い合わせ（Formspree） ===== -->
 <div class="contact">
-
   <div class="contact-title">Contact</div>
 
-  <form action="https://formspree.io/f/xwvjpwwk" method="POST">
-
+  <form action="https://formspree.io/f/あなたのID" method="POST">
     <input type="text" name="name" placeholder="お名前" required>
     <input type="email" name="email" placeholder="メールアドレス" required>
-    <textarea name="message" rows="6" placeholder="メッセージ内容" required></textarea>
-
+    <textarea name="message" placeholder="メッセージ"></textarea>
     <button type="submit">送信</button>
-
   </form>
-
 </div>
-
-<footer>
-© Toshimi Onishi Art Archives
-</footer>
 
 <script src="script.js"></script>
 
