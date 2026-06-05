@@ -8,6 +8,7 @@
 
 <body>
 
+<!-- ===== トップ ===== -->
 <div id="top">
 
   <div class="hero">
@@ -25,6 +26,7 @@
     </div>
 
     <div class="name">大西　敏巳<br>Toshimi Onishi</div>
+
     <div class="years">1940–2001　兵庫</div>
 
     <div class="history">
@@ -37,32 +39,23 @@
 
   <div class="text">
     <div class="title">「刻」と「風景」の記録</div>
-    <div class="desc">父が遺した油彩と水彩の作品群</div>
+    <div class="desc">
+      父が遺した油彩と水彩の作品群
+    </div>
   </div>
 
-  <!-- カルーセル -->
   <div class="featured-carousel">
 
     <h2>時間と記憶のアーカイブ</h2>
 
     <div class="carousel">
-
       <button class="prev">❮</button>
-
-      <div class="carousel-track">
-        <img src="images/001.jpg">
-        <img src="images/kobe-niki.JPG">
-        <img src="images/002.jpg">
-        <img src="images/garage.JPG">
-        <img src="images/009.jpg">
-      </div>
-
+      <img id="carousel-image" src="images/001.jpg">
       <button class="next">❯</button>
-
     </div>
+
   </div>
 
-  <!-- ギャラリー -->
   <div class="gallery">
 
     <img src="images/001.jpg" onclick="openWork(1)">
@@ -77,14 +70,14 @@
     <img src="images/200.JPG" onclick="openWork(200)">
 
   </div>
+
 </div>
 
-<!-- 作品ページ（テンプレ構造：そのまま増やせる） -->
+<!-- ===== 作品ページ ===== -->
 <div id="work1" class="work-page">
   <img src="images/001.jpg">
   <h2>作品001</h2>
   <p>制作年：不明<br>油彩</p>
-  <p>作品説明</p>
   <div class="back" onclick="back()">← 戻る</div>
 </div>
 
@@ -92,11 +85,66 @@
   <img src="images/002.jpg">
   <h2>作品002</h2>
   <p>制作年：不明<br>油彩</p>
-  <p>作品説明</p>
   <div class="back" onclick="back()">← 戻る</div>
 </div>
 
-<!-- Contact -->
+<div id="work3" class="work-page">
+  <img src="images/003.JPG">
+  <h2>作品003</h2>
+  <p>制作年：不明<br>油彩</p>
+  <div class="back" onclick="back()">← 戻る</div>
+</div>
+
+<div id="work4" class="work-page">
+  <img src="images/004.JPG">
+  <h2>作品004</h2>
+  <p>制作年：不明<br>油彩</p>
+  <div class="back" onclick="back()">← 戻る</div>
+</div>
+
+<div id="work5" class="work-page">
+  <img src="images/005.JPG">
+  <h2>作品005</h2>
+  <p>制作年：不明<br>油彩</p>
+  <div class="back" onclick="back()">← 戻る</div>
+</div>
+
+<div id="work6" class="work-page">
+  <img src="images/006.JPG">
+  <h2>作品006</h2>
+  <p>制作年：不明<br>油彩</p>
+  <div class="back" onclick="back()">← 戻る</div>
+</div>
+
+<div id="work7" class="work-page">
+  <img src="images/007.JPG">
+  <h2>作品007</h2>
+  <p>制作年：不明<br>油彩</p>
+  <div class="back" onclick="back()">← 戻る</div>
+</div>
+
+<div id="work8" class="work-page">
+  <img src="images/008.JPG">
+  <h2>作品008</h2>
+  <p>制作年：不明<br>油彩</p>
+  <div class="back" onclick="back()">← 戻る</div>
+</div>
+
+<div id="work9" class="work-page">
+  <img src="images/009.jpg">
+  <h2>作品009</h2>
+  <p>制作年：不明<br>油彩</p>
+  <div class="back" onclick="back()">← 戻る</div>
+</div>
+
+<div id="work200" class="work-page">
+  <img src="images/200.JPG">
+  <h2>作品200</h2>
+  <p>制作年：不明<br>油彩</p>
+  <div class="back" onclick="back()">← 戻る</div>
+</div>
+
+<!-- ===== Contact（Formspree） ===== -->
 <div class="contact">
 
   <div class="contact-title">Contact</div>
@@ -110,6 +158,7 @@
     <button type="submit">送信</button>
 
   </form>
+
 </div>
 
 <script src="script.js"></script>
