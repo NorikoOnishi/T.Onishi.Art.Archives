@@ -1,22 +1,19 @@
 body {
-  background-color: #0b0b0b;
-  color: #eee;
   margin: 0;
+  background: #0b0b0b;
+  color: #eee;
   font-family: serif;
 }
 
-/* ===== トップ ===== */
 .hero {
-  position: relative;
   text-align: center;
+  position: relative;
 }
 
 .hero-bg {
   width: 80%;
-  max-height: 500px;
-  object-fit: cover;
-  display: block;
   margin: 20px auto;
+  display: block;
   filter: brightness(0.55);
 }
 
@@ -27,203 +24,118 @@ body {
   transform: translate(-50%,-50%);
   color: #25a8a8;
   font-size: 48px;
-  letter-spacing: 3px;
-  margin: 0;
-  text-align: center;
-
   opacity: 0;
-  filter: blur(12px);
-  animation: fadeInTitle 3s ease-out forwards;
+  animation: fadeIn 3s forwards;
 }
 
-@keyframes fadeInTitle {
-  0% { opacity: 0; filter: blur(12px); }
-  60% { opacity: 0.7; filter: blur(4px); }
-  100% { opacity: 1; filter: blur(0); }
+@keyframes fadeIn {
+  0% {opacity:0; filter:blur(12px);}
+  100% {opacity:1; filter:blur(0);}
 }
 
-/* ===== 略歴 ===== */
-.portrait {
+.bio {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.picture {
+  width: 400px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 80px;
+  width: 60%;
+  margin: 100px auto;
+}
+
+.gallery img {
+  width: 70%;
+  margin: auto;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* 作品ページ */
+.work-page {
+  display: none;
+  text-align: center;
+  padding: 60px;
+}
+
+.back {
+  color: #25a8a8;
+  cursor: pointer;
+  margin-top: 30px;
+}
+
+/* Contact */
+.contact {
+  text-align: center;
+  padding: 80px;
+}
+
+.contact input,
+.contact textarea {
+  width: 80%;
+  margin: 10px auto;
+  padding: 10px;
+  background: #111;
+  color: #eee;
+}
+
+/* ===== カルーセル（中央フォーカス型） ===== */
+
+.featured-carousel {
+  text-align: center;
+  padding: 80px 0;
+  overflow: hidden;
+}
+
+.carousel {
+  position: relative;
+  height: 420px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.picture {
-  width: 400px;
-  max-width: 90%;
-  margin-bottom: 30px;
-}
-
-.bio {
-  text-align: center;
-  padding: 80px 20px;
-}
-
-.bio .name {
-  font-size: 34px;
-  margin-bottom: 20px;
-}
-
-.bio .years {
-  font-size: 18px;
-  color: #aaa;
-  margin-bottom: 40px;
-}
-
-.bio .history {
-  font-size: 16px;
-  line-height: 2.2;
-  color: #ddd;
-}
-
-/* ===== スナップ型カルーセル ===== */
-
-.carousel-wrapper {
-  overflow: hidden;
-  width: 100%;
-  padding: 60px 0;
-}
-
 .carousel-track {
   display: flex;
-  gap: 80px;
-  align-items: center;
-  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: transform;
+  gap: 40px;
+  transition: transform 0.8s ease;
 }
 
 .carousel-track img {
-  width: 600px;
-  max-height: 400px;
+  width: 500px;
   object-fit: contain;
-
   filter: blur(6px);
+  opacity: 0.4;
   transform: scale(0.85);
-  opacity: 0.5;
-
-  transition: all 0.6s ease;
+  transition: 0.8s;
 }
 
-/* 中央の画像 */
 .carousel-track img.active {
   filter: blur(0);
-  transform: scale(1);
   opacity: 1;
+  transform: scale(1.05);
 }
 
-/* ===== ギャラリー ===== */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 100px 80px;
-  width: 60%;
-  max-width: 1200px;
-  margin: 120px auto;
-  text-align: center;
-}
-
-.gallery img {
-  width: 65%;
-  margin: 0 auto;
-  cursor: pointer;
-  display: block;
-  object-fit: contain;
-  transition: all 0.4s ease;
-}
-
-.gallery img:hover {
-  transform: scale(1.03);
-  opacity: 0.9;
-}
-
-/* ===== テキスト ===== */
-.text {
-  text-align: center;
-  margin: 80px 20px;
-}
-
-.text .title {
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   font-size: 40px;
-  margin-bottom: 20px;
-}
-
-.text .desc {
-  font-size: 18px;
-  color: #aaa;
-  line-height: 1.8;
-}
-
-/* ===== 作品ページ ===== */
-.work-page {
-  display: none;
-  text-align: center;
-  padding: 60px 20px;
-}
-
-.work-page img {
-  width: min(80%, 900px);
-  height: auto;
-  display: block;
-  margin: 40px auto;
-}
-
-.back {
-  display: inline-block;
-  margin-top: 40px;
-  color: #25a8a8;
-  cursor: pointer;
-}
-
-/* ===== 問い合わせ ===== */
-.contact {
-  text-align: center;
-  padding: 100px 20px;
-}
-
-.contact-title {
-  font-size: 32px;
-  margin-bottom: 30px;
-  color: #25a8a8;
-}
-
-.contact form {
-  width: 80%;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.contact input,
-.contact textarea {
-  width: 100%;
-  margin-bottom: 15px;
-  padding: 12px;
-  background: #111;
-  border: 1px solid #333;
-  color: #eee;
-  font-family: serif;
-}
-
-.contact button {
-  background: #25a8a8;
-  color: #000;
+  background: none;
   border: none;
-  padding: 12px 30px;
+  color: #25a8a8;
   cursor: pointer;
 }
 
-.contact button:hover {
-  opacity: 0.8;
-}
-
-/* ===== 全体補正 ===== */
-img { max-width: 100%; }
-.hero, .bio, .gallery, .text, .featured-carousel {
-  width: 100%;
-  padding: 0 20px;
-  box-sizing: border-box;
-}
-
-.hero-bg {
-  margin: 20px auto;
-}
+.prev { left: 10px; }
+.next { right: 10px; }
