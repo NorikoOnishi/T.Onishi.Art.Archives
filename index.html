@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Toshimi Onishi Art Archives</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <h1>Toshimi Onishi<br>Art Archives</h1>
+    <p>1940–2001 / Paintings Archive</p>
+  </div>
+</header>
+
+<section class="intro">
+  <img src="assets/portrait.jpg" alt="">
+  <div>
+    <h2>大西 敏巳</h2>
+    <p>油彩・水彩作品アーカイブ</p>
+  </div>
+</section>
+
+<!-- FEATURE -->
+<section class="feature">
+  <h2>Featured Works</h2>
+
+  <div class="carousel">
+    <button id="prev">‹</button>
+    <img id="carousel-image">
+    <button id="next">›</button>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery"></section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <div class="lb-inner">
+
+    <button id="close">×</button>
+
+    <img id="lb-img">
+
+    <div class="lb-text">
+      <h2 id="lb-title"></h2>
+      <p id="lb-year"></p>
+      <p id="lb-desc"></p>
+    </div>
+
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="contact">
+  <h2>Contact</h2>
+
+  <form action="https://formspree.io/f/REPLACE_THIS" method="POST">
+
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <textarea name="message" placeholder="Message" required></textarea>
+
+    <button type="submit">Send</button>
+  </form>
+</section>
+
+<footer>
+  © Toshimi Onishi Art Archives
+</footer>
+
+<script src="works-data.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
