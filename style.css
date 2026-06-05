@@ -77,89 +77,39 @@ body {
   color: #ddd;
 }
 
-/* ===== カルーセル ===== */
-.featured-carousel{
-  text-align:center;
-  padding:80px 20px;
-}
+/* ===== スナップ型カルーセル ===== */
 
-.featured-carousel h2{
-  color:#25a8a8;
-  margin-bottom:40px;
-  letter-spacing:2px;
-}
-
-.carousel{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:20px;
-  width:100%;
-}
-
-.carousel img {
-  width: 80%;
-  max-width: 900px;
-  max-height: 500px;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto;
-}
-
-#carousel-image {
-  filter: blur(10px);
-}
-
-@keyframes fadeArtwork {
-  0% { opacity: 0; transform: translateX(25px); filter: blur(10px); }
-  100% { opacity: 1; transform: translateX(0); filter: blur(0); }
-}
-
-.fade {
-  animation: fadeArtwork 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-/* ===== 連続流れるカルーセル（追加） ===== */
-
-.carousel-track-wrapper {
+.carousel-wrapper {
   overflow: hidden;
   width: 100%;
-  padding: 40px 0;
+  padding: 60px 0;
 }
 
 .carousel-track {
   display: flex;
-  width: max-content;
-  gap: 60px;
+  gap: 80px;
   align-items: center;
-  animation: scroll 30s linear infinite;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
 }
 
-/* 画像の基本状態（ぼかし＋縮小） */
 .carousel-track img {
   width: 600px;
   max-height: 400px;
   object-fit: contain;
+
   filter: blur(6px);
   transform: scale(0.85);
-  opacity: 0.6;
+  opacity: 0.5;
+
   transition: all 0.6s ease;
 }
 
-/* ちょっとだけ“中央っぽく見せる補正” */
-.carousel-track img:nth-child(5n) {
-  filter: blur(0px);
+/* 中央の画像 */
+.carousel-track img.active {
+  filter: blur(0);
   transform: scale(1);
   opacity: 1;
-}
-
-/* 横スクロール */
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
 }
 
 /* ===== ギャラリー ===== */
