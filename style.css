@@ -12,8 +12,12 @@ body {
 
 .hero-bg {
   width: 80%;
-  margin: 20px auto;
+  max-width: 1200px;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
   display: block;
+  margin: 20px auto;
   filter: brightness(0.55);
 }
 
