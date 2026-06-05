@@ -1,58 +1,63 @@
-const gallery = document.getElementById("gallery");
-const carousel = document.getElementById("carousel-image");
+function openWork(n){
+  document.getElementById("top").style.display="none";
+  document.getElementById("work"+n).style.display="block";
+}
 
-const lb = document.getElementById("lightbox");
-const lbImg = document.getElementById("lb-img");
-const lbTitle = document.getElementById("lb-title");
-const lbYear = document.getElementById("lb-year");
-const lbDesc = document.getElementById("lb-desc");
+function back(){
+  document.querySelectorAll(".work-page").forEach(p=>{
+    p.style.display="none";
+  });
+  document.getElementById("top").style.display="block";
+}
 
-const close = document.getElementById("close");
+/* ===== ギャラリー自動生成 ===== */
 
-let i = 0;
+const works = [
+  {id:1,file:"001.jpg"},
+  {id:2,file:"002.jpg"},
+  {id:3,file:"003.JPG"},
+  {id:4,file:"004.JPG"},
+  {id:5,file:"005.JPG"},
+  {id:6,file:"006.JPG"},
+  {id:7,file:"007.JPG"},
+  {id:8,file:"008.JPG"},
+  {id:9,file:"009.jpg"},
+  {id:200,file:"200.JPG"}
+];
 
-/* GALLERY */
-works.forEach(w => {
-  const img = document.createElement("img");
-  img.src = "images/" + w.file;
+const gallery=document.getElementById("gallery");
 
-  img.onclick = () => {
-    lb.style.display = "flex";
-    lbImg.src = "images/" + w.file;
-    lbTitle.textContent = w.title;
-    lbYear.textContent = w.year;
-    lbDesc.textContent = w.desc;
-  };
-
+works.forEach(w=>{
+  const img=document.createElement("img");
+  img.src=w.file;
+  img.onclick=()=>openWork(w.id);
   gallery.appendChild(img);
 });
 
-/* CAROUSEL */
-function show() {
-  carousel.src = "images/" + works[i].file;
+/* ===== カルーセル ===== */
+
+const images=["001.jpg","kobe-niki.JPG","002.jpg","garage.JPG","009.jpg"];
+
+let i=0;
+const img=document.getElementById("carousel-image");
+
+function show(){
+  img.src=images[i];
 }
+
+document.querySelector(".next").onclick=()=>{
+  i=(i+1)%images.length;
+  show();
+};
+
+document.querySelector(".prev").onclick=()=>{
+  i=(i-1+images.length)%images.length;
+  show();
+};
 
 show();
 
-document.getElementById("next").onclick = () => {
-  i = (i + 1) % works.length;
+setInterval(()=>{
+  i=(i+1)%images.length;
   show();
-};
-
-document.getElementById("prev").onclick = () => {
-  i = (i - 1 + works.length) % works.length;
-  show();
-};
-
-/* CLOSE */
-close.onclick = () => lb.style.display = "none";
-
-lb.onclick = (e) => {
-  if (e.target === lb) lb.style.display = "none";
-};
-
-/* AUTO PLAY */
-setInterval(() => {
-  i = (i + 1) % works.length;
-  show();
-}, 8000);
+},8000);
