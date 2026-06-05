@@ -10,49 +10,45 @@ function back(){
   document.getElementById("top").style.display = "block";
 }
 
-/* ===== カルーセル（中央フォーカス型） ===== */
-
+/* ===== カルーセル ===== */
 window.addEventListener("DOMContentLoaded", () => {
 
-  const track = document.querySelector(".carousel-track");
-  const items = document.querySelectorAll(".carousel-track img");
+  const images = [
+    "images/001.jpg",
+    "images/kobe-niki.JPG",
+    "images/002.jpg",
+    "images/garage.JPG",
+    "images/009.jpg"
+  ];
 
-  let index = 0;
+  let current = 0;
 
-  function update(){
+  const img = document.getElementById("carousel-image");
+  const next = document.querySelector(".next");
+  const prev = document.querySelector(".prev");
 
-    items.forEach((img, i)=>{
-
-      img.classList.remove("active");
-
-      const offset = i - index;
-
-      if(i === index){
-        img.classList.add("active");
-      }
-
-      img.style.transform = `translateX(${offset * 520}px) scale(${i === index ? 1.05 : 0.85})`;
-      img.style.filter = i === index ? "blur(0)" : "blur(6px)";
-      img.style.opacity = i === index ? "1" : "0.4";
-    });
+  function showImage(){
+    img.classList.remove("fade");
+    void img.offsetWidth;
+    img.src = images[current];
+    requestAnimationFrame(()=> img.classList.add("fade"));
   }
 
-  function next(){
-    index = (index + 1) % items.length;
-    update();
-  }
+  next.addEventListener("click", ()=>{
+    current = (current+1)%images.length;
+    showImage();
+  });
 
-  function prev(){
-    index = (index - 1 + items.length) % items.length;
-    update();
-  }
+  prev.addEventListener("click", ()=>{
+    current = (current-1+images.length)%images.length;
+    showImage();
+  });
 
-  document.querySelector(".next").onclick = next;
-  document.querySelector(".prev").onclick = prev;
-
-  update();
+  showImage();
 
   setInterval(()=>{
-    next();
-  }, 5000);
+    current = (current+1)%images.length;
+    showImage();
+  },8000);
+
 });
