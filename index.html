@@ -12,7 +12,7 @@
 <div id="top">
 
   <div class="hero">
-    <img src="001.jpg" class="hero-bg">
+    <img src="images/001.jpg" class="hero-bg">
 
     <h1 class="hero-title">
       Toshimi Onishi<br>
@@ -22,7 +22,7 @@
 
   <div class="bio">
     <div class="portrait">
-      <img src="portrait.JPG" class="picture">
+      <img src="images/portrait.JPG" class="picture">
     </div>
 
     <div class="name">大西　敏巳<br>Toshimi Onishi</div>
@@ -35,72 +35,121 @@
       1993　黒田賞受賞<br>
       2000　第54回二紀展 文部大臣奨励賞受賞
     </div>
-  </div> 
+  </div>
 
   <div class="text">
     <div class="title">「刻」と「風景」の記録</div>
-    <div class="desc">父が遺した油彩と水彩の作品群</div>
+    <div class="desc">
+      父が遺した油彩と水彩の作品群
+    </div>
   </div>
 
   <div class="featured-carousel">
+
     <h2>時間と記憶のアーカイブ</h2>
 
     <div class="carousel">
       <button class="prev">❮</button>
-      <img id="carousel-image" src="001.jpg">
+      <img id="carousel-image" src="images/001.jpg">
       <button class="next">❯</button>
     </div>
+
   </div>
 
-  <!-- ★ここだけ変更：自動生成用 -->
-  <div class="gallery" id="gallery"></div>
+  <div class="gallery">
+
+    <img src="images/001.jpg" onclick="openWork(1)">
+    <img src="images/002.jpg" onclick="openWork(2)">
+    <img src="images/003.JPG" onclick="openWork(3)">
+    <img src="images/004.JPG" onclick="openWork(4)">
+    <img src="images/005.JPG" onclick="openWork(5)">
+    <img src="images/006.JPG" onclick="openWork(6)">
+    <img src="images/007.JPG" onclick="openWork(7)">
+    <img src="images/008.JPG" onclick="openWork(8)">
+    <img src="images/009.jpg" onclick="openWork(9)">
+    <img src="images/200.JPG" onclick="openWork(200)">
+
+  </div>
 
 </div>
 
-<!-- ===== 作品ページ（元のまま残す） ===== -->
-
+<!-- ===== 作品ページ ===== -->
 <div id="work1" class="work-page">
-  <img src="001.jpg">
+  <img src="images/001.jpg">
   <h2>作品001</h2>
   <p>制作年：不明<br>油彩</p>
   <div class="back" onclick="back()">← 戻る</div>
 </div>
 
 <div id="work2" class="work-page">
-  <img src="002.jpg">
+  <img src="images/002.jpg">
   <h2>作品002</h2>
   <p>制作年：不明<br>油彩</p>
   <div class="back" onclick="back()">← 戻る</div>
 </div>
 
 <div id="work3" class="work-page">
-  <img src="003.JPG">
+  <img src="images/003.JPG">
   <h2>作品003</h2>
   <p>制作年：不明<br>油彩</p>
   <div class="back" onclick="back()">← 戻る</div>
 </div>
 
 <div id="work4" class="work-page">
-  <img src="004.JPG">
+  <img src="images/004.JPG">
   <h2>作品004</h2>
   <p>制作年：不明<br>油彩</p>
   <div class="back" onclick="back()">← 戻る</div>
 </div>
 
 <div id="work5" class="work-page">
-  <img src="005.JPG">
+  <img src="images/005.JPG">
   <h2>作品005</h2>
   <p>制作年：不明<br>油彩</p>
   <div class="back" onclick="back()">← 戻る</div>
 </div>
 
-<!-- ===== 問い合わせ（Formspree対応のみ変更） ===== -->
+<div id="work6" class="work-page">
+  <img src="images/006.JPG">
+  <h2>作品006</h2>
+  <p>制作年：不明<br>油彩</p>
+  <div class="back" onclick="back()">← 戻る</div>
+</div>
 
+<div id="work7" class="work-page">
+  <img src="images/007.JPG">
+  <h2>作品007</h2>
+  <p>制作年：不明<br>油彩</p>
+  <div class="back" onclick="back()">← 戻る</div>
+</div>
+
+<div id="work8" class="work-page">
+  <img src="images/008.JPG">
+  <h2>作品008</h2>
+  <p>制作年：不明<br>油彩</p>
+  <div class="back" onclick="back()">← 戻る</div>
+</div>
+
+<div id="work9" class="work-page">
+  <img src="images/009.jpg">
+  <h2>作品009</h2>
+  <p>制作年：不明<br>油彩</p>
+  <div class="back" onclick="back()">← 戻る</div>
+</div>
+
+<div id="work200" class="work-page">
+  <img src="images/200.JPG">
+  <h2>作品200</h2>
+  <p>制作年：不明<br>油彩</p>
+  <div class="back" onclick="back()">← 戻る</div>
+</div>
+
+<!-- ===== Contact（Formspree） ===== -->
 <div class="contact">
 
   <div class="contact-title">Contact</div>
 
-  <form action="https://formspree.io/f/あなたのID" method="POST">
+  <form action="https://formspree.io/f/xwvjpwwk" method="POST">
 
     <input type="text" name="name" placeholder="お名前" required>
     <input type="email" name="email" placeholder="メールアドレス" required>
@@ -109,9 +158,9 @@
     <button type="submit">送信</button>
 
   </form>
+
 </div>
 
-<script src="works-data.js"></script>
 <script src="script.js"></script>
 
 </body>
