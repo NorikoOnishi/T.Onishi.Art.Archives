@@ -1,19 +1,18 @@
 body {
-  margin: 0;
-  background: #0b0b0b;
+  background-color: #0b0b0b;
   color: #eee;
+  margin: 0;
   font-family: serif;
 }
 
+/* ===== トップ ===== */
 .hero {
-  text-align: center;
   position: relative;
+  text-align: center;
 }
 
 .hero-bg {
   width: 80%;
-  max-width: 1200px;
-  height: auto;
   max-height: 500px;
   object-fit: cover;
   display: block;
@@ -28,121 +27,210 @@ body {
   transform: translate(-50%,-50%);
   color: #25a8a8;
   font-size: 48px;
-  opacity: 0;
-  animation: fadeIn 3s forwards;
-}
-
-@keyframes fadeIn {
-  0% {opacity:0; filter:blur(12px);}
-  100% {opacity:1; filter:blur(0);}
-}
-
-.bio {
+  letter-spacing: 3px;
+  margin: 0;
   text-align: center;
-  padding: 60px 20px;
+
+  opacity: 0;
+  filter: blur(12px);
+  animation: fadeInTitle 3s ease-out forwards;
+}
+
+@keyframes fadeInTitle {
+  0% { opacity: 0; filter: blur(12px); }
+  60% { opacity: 0.7; filter: blur(4px); }
+  100% { opacity: 1; filter: blur(0); }
+}
+
+/* ===== 略歴 ===== */
+.portrait {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .picture {
   width: 400px;
+  max-width: 90%;
+  margin-bottom: 30px;
 }
 
+.bio {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.bio .name {
+  font-size: 34px;
+  margin-bottom: 20px;
+}
+
+.bio .years {
+  font-size: 18px;
+  color: #aaa;
+  margin-bottom: 40px;
+}
+
+.bio .history {
+  font-size: 16px;
+  line-height: 2.2;
+  color: #ddd;
+}
+
+/* ===== カルーセル ===== */
+.featured-carousel{
+  text-align:center;
+  padding:80px 20px;
+}
+
+.featured-carousel h2{
+  color:#25a8a8;
+  margin-bottom:40px;
+  letter-spacing:2px;
+}
+
+.carousel{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:20px;
+  width:100%;
+}
+
+.carousel img {
+  width: 80%;
+  max-width: 900px;
+  max-height: 500px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+#carousel-image {
+  filter: blur(10px);
+}
+
+@keyframes fadeArtwork {
+  0% { opacity: 0; transform: translateX(25px); filter: blur(10px); }
+  100% { opacity: 1; transform: translateX(0); filter: blur(0); }
+}
+
+.fade {
+  animation: fadeArtwork 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ===== ギャラリー ===== */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 80px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 100px 80px;
   width: 60%;
-  margin: 100px auto;
+  max-width: 1200px;
+  margin: 120px auto;
+  text-align: center;
 }
 
 .gallery img {
-  width: 70%;
-  margin: auto;
+  width: 65%;
+  margin: 0 auto;
   cursor: pointer;
-  transition: 0.3s;
+  display: block;
+  object-fit: contain;
+  transition: all 0.4s ease;
 }
 
 .gallery img:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
+  opacity: 0.9;
 }
 
-/* 作品ページ */
+/* ===== テキスト ===== */
+.text {
+  text-align: center;
+  margin: 80px 20px;
+}
+
+.text .title {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.text .desc {
+  font-size: 18px;
+  color: #aaa;
+  line-height: 1.8;
+}
+
+/* ===== 作品ページ ===== */
 .work-page {
   display: none;
   text-align: center;
-  padding: 60px;
+  padding: 60px 20px;
+}
+
+.work-page img {
+  width: min(80%, 900px);
+  height: auto;
+  display: block;
+  margin: 40px auto;
 }
 
 .back {
+  display: inline-block;
+  margin-top: 40px;
   color: #25a8a8;
   cursor: pointer;
-  margin-top: 30px;
 }
 
-/* Contact */
+/* ===== 問い合わせ ===== */
 .contact {
   text-align: center;
-  padding: 80px;
+  padding: 100px 20px;
+}
+
+.contact-title {
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #25a8a8;
+}
+
+.contact form {
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .contact input,
 .contact textarea {
-  width: 80%;
-  margin: 10px auto;
-  padding: 10px;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 12px;
   background: #111;
+  border: 1px solid #333;
   color: #eee;
+  font-family: serif;
 }
 
-.text {
-  text-align: center;
-  margin: 80px auto;
+.contact button {
+  background: #25a8a8;
+  color: #000;
+  border: none;
+  padding: 12px 30px;
+  cursor: pointer;
+}
+
+.contact button:hover {
+  opacity: 0.8;
+}
+
+/* ===== 全体補正 ===== */
+img { max-width: 100%; }
+.hero, .bio, .gallery, .text, .featured-carousel {
   width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
-.text .title,
-.text .desc {
-  text-align: center;
-}
-.carousel-wrapper {
-  width: 100%;
-  overflow: hidden;
-  padding: 60px 0;
-  display: flex;
-  justify-content: center;
-}
-
-.carousel-track {
-  display: flex;
-  gap: 60px;
-  align-items: center;
-  will-change: transform;
-  animation: scroll 25s linear infinite;
-}
-
-/* 画像の基本状態 */
-.carousel-track img {
-  width: 500px;
-  max-height: 350px;
-  object-fit: contain;
-  transform: scale(0.85);
-  filter: blur(5px);
-  opacity: 0.5;
-  transition: all 0.8s ease;
-}
-
-/* 中央強調（擬似的） */
-.carousel-track img:nth-child(3n) {
-  transform: scale(1.05);
-  filter: blur(0px);
-  opacity: 1;
-}
-
-/* 横スクロール */
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+.hero-bg {
+  margin: 20px auto;
 }
