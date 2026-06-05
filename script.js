@@ -10,47 +10,45 @@ function back(){
   document.getElementById("top").style.display = "block";
 }
 
-/* ===== ギャラリー自動生成 ===== */
-
-const gallery = document.getElementById("gallery");
-
-works.forEach(w=>{
-  const img = document.createElement("img");
-  img.src = w.file;
-  img.onclick = () => openWork(w.id);
-  gallery.appendChild(img);
-});
-
 /* ===== カルーセル ===== */
+window.addEventListener("DOMContentLoaded", () => {
 
-const images = [
-  "001.jpg",
-  "kobe-niki.JPG",
-  "002.jpg",
-  "garage.JPG",
-  "009.jpg"
-];
+  const images = [
+    "images/001.jpg",
+    "images/kobe-niki.JPG",
+    "images/002.jpg",
+    "images/garage.JPG",
+    "images/009.jpg"
+  ];
 
-let current = 0;
-const carouselImg = document.getElementById("carousel-image");
+  let current = 0;
 
-function showImage(){
-  carouselImg.src = images[current];
-}
+  const img = document.getElementById("carousel-image");
+  const next = document.querySelector(".next");
+  const prev = document.querySelector(".prev");
 
-document.querySelector(".next").onclick = ()=>{
-  current = (current + 1) % images.length;
+  function showImage(){
+    img.classList.remove("fade");
+    void img.offsetWidth;
+    img.src = images[current];
+    requestAnimationFrame(()=> img.classList.add("fade"));
+  }
+
+  next.addEventListener("click", ()=>{
+    current = (current+1)%images.length;
+    showImage();
+  });
+
+  prev.addEventListener("click", ()=>{
+    current = (current-1+images.length)%images.length;
+    showImage();
+  });
+
   showImage();
-};
 
-document.querySelector(".prev").onclick = ()=>{
-  current = (current - 1 + images.length) % images.length;
-  showImage();
-};
+  setInterval(()=>{
+    current = (current+1)%images.length;
+    showImage();
+  },8000);
 
-showImage();
-
-setInterval(()=>{
-  current = (current + 1) % images.length;
-  showImage();
-},8000);
+});
