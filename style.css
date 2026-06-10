@@ -149,17 +149,17 @@ body {
 .gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 100px 80px;
-  width: 60%;
+  gap: 80px 60px;
+
+  width: 80%;
   max-width: 1200px;
-  margin: 80px auto;
-  text-align: center;
+  margin: 120px auto;
 }
 
 .gallery img {
-  width: 65%;
+  width: 100%;
+  max-width: 220px;
   margin: 0 auto;
-  cursor: pointer;
   display: block;
   object-fit: contain;
   transition: all 0.4s ease;
