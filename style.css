@@ -1,4 +1,4 @@
-body {
+body { 
   background-color: #0b0b0b;
   color: #eee;
   margin: 0;
@@ -77,6 +77,37 @@ body {
   color: #ddd;
 }
 
+/* ===== カルーセル（修正ポイント） ===== */
+.featured-carousel{
+  text-align:center;
+  padding:80px 20px;
+}
+
+/* ★重要：高さ固定でブレ防止 */
+.carousel{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:20px;
+
+  width:100%;
+  height:550px;        /* ←ここで安定させる */
+}
+
+/* ★画像は「高さ基準」で統一 */
+.carousel img {
+  max-width: 85%;
+  max-height: 500px;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+/* フェード演出 */
 #carousel-image {
   opacity: 0;
 }
@@ -146,7 +177,7 @@ body {
   line-height: 1.8;
 }
 
-/* ===== 作品ページ ===== */
+/* ===== 作品ページ（修正済み） ===== */
 .work-page {
   display: none;
   text-align: center;
@@ -154,10 +185,12 @@ body {
 }
 
 .work-page img {
-  max-width: 65%;
+  max-width: 72%;   /* ←少し小さくして上品に */
   max-height: 70vh;
+
   width: auto;
   height: auto;
+
   display: block;
   margin: 40px auto;
 }
@@ -212,6 +245,7 @@ body {
 
 /* ===== 全体補正 ===== */
 img { max-width: 100%; }
+
 .hero, .bio, .gallery, .text, .featured-carousel {
   width: 100%;
   padding: 0 20px;
