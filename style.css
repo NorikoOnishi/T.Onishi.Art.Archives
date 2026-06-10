@@ -135,6 +135,13 @@ body {
   animation: fadeArtwork 3s ease-out forwards;
 }
 
+.desc {
+  text-align: center;
+  margin: 40px 20px 0;
+  font-size: 18px;
+  color: #aaa;
+}
+
 /* ===== ギャラリー ===== */
 .gallery {
   display: grid;
