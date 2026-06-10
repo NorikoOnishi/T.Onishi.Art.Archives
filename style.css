@@ -148,7 +148,7 @@ body {
 /* ===== ギャラリー ===== */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 80px 60px;
 
   width: 80%;
@@ -158,11 +158,9 @@ body {
 
 .gallery img {
   width: 100%;
-  max-width: 220px;
-  margin: 0 auto;
+  height: auto;
   display: block;
   object-fit: contain;
-  transition: all 0.4s ease;
 }
 
 .gallery img:hover {
