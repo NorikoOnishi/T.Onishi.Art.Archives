@@ -77,46 +77,31 @@ body {
   color: #ddd;
 }
 
-/* ===== カルーセル ===== */
-.featured-carousel{
-  text-align:center;
-  padding:80px 20px;
-}
-
-.featured-carousel h2{
-  color:#25a8a8;
-  margin-bottom:40px;
-  letter-spacing:2px;
-}
-
-.carousel{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:20px;
-  width:100%;
-}
-
-.carousel img {
-  width: 80%;
-  max-width: 900px;
-  max-height: 500px;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto;
-}
-
 #carousel-image {
-  filter: blur(10px);
+  opacity: 0;
 }
 
 @keyframes fadeArtwork {
-  0% { opacity: 0; transform: translateX(25px); filter: blur(10px); }
-  100% { opacity: 1; transform: translateX(0); filter: blur(0); }
+
+  0% {
+    opacity: 0;
+    filter: blur(22px) brightness(1.12);
+  }
+
+  50% {
+    opacity: 0.7;
+    filter: blur(8px) brightness(1.06);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+
 }
 
 .fade {
-  animation: fadeArtwork 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: fadeArtwork 3s ease-out forwards;
 }
 
 /* ===== ギャラリー ===== */
