@@ -169,7 +169,9 @@ body {
 }
 
 .work-page img {
-  width: min(80%, 900px);
+  max-width: 80%;
+  max-height: 75vh;
+  width: auto;
   height: auto;
   display: block;
   margin: 40px auto;
