@@ -135,11 +135,14 @@ body {
   animation: fadeArtwork 3s ease-out forwards;
 }
 
+/* ==== desc ==== */
 .desc {
   text-align: center;
-  margin: 40px 20px 0;
+  margin: 60px auto 40px;
   font-size: 18px;
   color: #aaa;
+  max-width: 800px;
+  padding: 0 20px;
 }
 
 /* ===== ギャラリー ===== */
@@ -149,7 +152,7 @@ body {
   gap: 100px 80px;
   width: 60%;
   max-width: 1200px;
-  margin: 120px auto;
+  margin: 80px auto;
   text-align: center;
 }
 
