@@ -29,14 +29,13 @@ window.addEventListener("DOMContentLoaded", () => {
   const prev = document.querySelector(".prev");
 
   function render() {
+
     if (!img) return;
 
     img.classList.remove("fade");
 
-    // 中央表示
     img.src = images[current];
 
-    // 再アニメーション
     void img.offsetWidth;
 
     requestAnimationFrame(() => {
@@ -45,27 +44,33 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   function nextSlide() {
+
     if (isAnimating) return;
+
     isAnimating = true;
 
     current = (current + 1) % images.length;
+
     render();
 
     setTimeout(() => {
       isAnimating = false;
-    }, 1200); // “止まり感”
+    }, 3000);
   }
 
   function prevSlide() {
+
     if (isAnimating) return;
+
     isAnimating = true;
 
     current = (current - 1 + images.length) % images.length;
+
     render();
 
     setTimeout(() => {
       isAnimating = false;
-    }, 1200);
+    }, 3000);
   }
 
   next.addEventListener("click", nextSlide);
@@ -73,9 +78,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
   render();
 
-  // 自動再生（少し“間”を作る）
+  // ゆっくり自動再生
   setInterval(() => {
     nextSlide();
-  }, 5000);
-});
+  }, 7000);
 
+});
